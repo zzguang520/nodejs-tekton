@@ -32,7 +32,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: nodejs-app
-        image: us.icr.io/cloud-images/nodejs-app:latest
+        image: docker.io/zengzg520/nodejs-app:latest
         imagePullPolicy: "Always"
         ports:
         - containerPort: 8080
@@ -43,4 +43,4 @@ spec:
                 name: authors-secret-api
                 key: AUTHORS_API_KEY
       imagePullSecrets:
-        - name: default-us-icr-io
+        - name: docker-secret

@@ -1,0 +1,31 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: notify-result-task
+spec:
+  steps:
+    - name: notify-result
+      image: plugins/slack
+      settings:
+        webhook:
+          from_secret: slack_webhook
+        channel: <slack channel>
+        link_names: true
+        template: >
+          {{#success build.status}}
+            Build {{build.number}} succeeded and deployed to Staging! :)
+            Event: {{build.event}}
+            Branch: {{build.branch}}
+            Tag: {{build.tag}}
+            Git SHA: {{build.commit}}
+            Link: {{build.link}}
+          {{else}}
+            Build {{build.number}} failed and not deployed to Staging :(
+            Event: {{build.event}}
+            Branch: {{build.branch}}
+            Tag: {{build.tag}}
+            Git SHA: {{build.commit}}
+            Link: {{build.link}}
+          {{/success}}
+      when:
+        status: [ success, failure ]
