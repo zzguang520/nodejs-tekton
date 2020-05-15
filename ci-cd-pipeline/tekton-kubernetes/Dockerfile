@@ -1,11 +1,11 @@
 FROM node:12.16-alpine
 
-ADD bin          /app/bin
-ADD public       /app/public
-ADD routes       /app/routes
-ADD views        /app/views
-ADD app.js       /app/
-ADD package.json /app/
+ADD ./nodejs/bin          /app/bin
+ADD ./nodejs/public       /app/public
+ADD ./nodejs/routes       /app/routes
+ADD ./nodejs/views        /app/views
+ADD ./nodejs/app.js       /app/
+ADD ./nodejs/package.json /app/
 
 RUN ls -l /app
 
