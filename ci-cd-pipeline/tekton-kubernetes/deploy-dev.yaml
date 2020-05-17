@@ -32,7 +32,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: nodejs-app
-        image: docker.io/zengzg520/nodejs-app:latest
+        image: docker.io/zengzg520/nodejs-app:dev
         imagePullPolicy: "Always"
         ports:
         - containerPort: 8080
