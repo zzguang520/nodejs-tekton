@@ -31,7 +31,8 @@ router.post('/get_links', async function (req,res) {
       console.log(health);
       if(health.outcome != 'UP') {
         console.log('Error: OpenLiberty API Server seems to be down. Please check.');
-        res.render('index', {links: null, error_authors: 'Error: OpenLiberty API Server seems to be down. Please check.'});
+        res.render('index', {links: null, error_authors: 'Error: OpenLiberty API Server seems to be down. Please check from 
+https://github.com/vladsancira/openliberty-tekton'});
         return;
       }
     }  
