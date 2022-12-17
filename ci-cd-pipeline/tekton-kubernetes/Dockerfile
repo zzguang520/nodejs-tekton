@@ -1,4 +1,4 @@
-FROM node:12.16-alpine
+FROM node:12.22.11-alpine
 
 ADD ./nodejs/bin          /app/bin
 ADD ./nodejs/public       /app/public
